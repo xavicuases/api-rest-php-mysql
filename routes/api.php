@@ -15,3 +15,5 @@ Route::get('/categoria/{id}', [\App\Http\Controllers\categoriacontroller::class,
 Route::post('addCategoria', [\App\Http\Controllers\categoriacontroller::class, 'insertCategoria']);
 
 Route::put('updateCategoria/{id}', [\App\Http\Controllers\categoriacontroller::class, 'updateCategoria']);
+
+Route::delete('deleteCategoria/{id}', [\App\Http\Controllers\categoriacontroller::class, 'deleteCategoria']);
