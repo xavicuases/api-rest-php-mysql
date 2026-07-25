@@ -26,8 +26,7 @@ class categoriacontroller extends Controller
         return response($categoria,200);
     }
 
-    public function updateCategoria(Request $request, $id)
-{
+    public function updateCategoria(Request $request, $id){
     $categoria = Categoria::find($id);
 
     if (is_null($categoria)) {
@@ -37,5 +36,17 @@ class categoriacontroller extends Controller
     $categoria->update($request->all());
 
     return response()->json($categoria, 200);
-}
+
+    }
+
+    public function deleteCategoria($id){
+        $categoria = Categoria::find($id);
+        if (is_null($categoria)) {
+        return response()->json(['Mensaje' => 'Registro no encontrado'], 404);
+        }
+
+        $categoria->delete();
+        return response()->json(['Mensaje'=>'Registro Eliminado'],200);
+    }
+
 }
